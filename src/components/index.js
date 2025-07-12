@@ -6,6 +6,9 @@ import Container from './container/Container.jsx'
 import InputFild from '../components/InputFild .jsx'
 import Button from './Button.jsx'
 import RTE from '../components/RTE.jsx'
+import SelectBtn from '../components/SelectBtn.jsx'
+import Postform from '../components/Post-Form/Postform.jsx'
+import Postcard from '../components/Postcard.jsx'
 
 export {
     Header,
@@ -16,5 +19,8 @@ export {
     InputFild,
     Button,
     RTE,
+    SelectBtn,
+    Postform,
+    Postcard
 
 }
