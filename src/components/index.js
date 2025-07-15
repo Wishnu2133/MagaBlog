@@ -9,6 +9,8 @@ import RTE from '../components/RTE.jsx'
 import SelectBtn from '../components/SelectBtn.jsx'
 import Postform from '../components/Post-Form/Postform.jsx'
 import Postcard from '../components/Postcard.jsx'
+import Protected from './Protected.jsx'
+import Login from './Login/Login.jsx'
 
 export {
     Header,
@@ -21,6 +23,8 @@ export {
     RTE,
     SelectBtn,
     Postform,
-    Postcard
+    Postcard,
+    Protected,
+    Login
 
 }

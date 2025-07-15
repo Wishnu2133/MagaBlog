@@ -1,8 +1,8 @@
-import React from 'react';
+
 import { Postform , Container } from '../components';
 
 
-function AddPost(){
+export default function AddPost(){
     return(
         <div className='py-8'>
             <Container>
