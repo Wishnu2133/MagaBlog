@@ -27,7 +27,7 @@ function Login() {
                 
             }
         } catch (error) {
-            setError(error.massage)
+            setError(error.message)
         }
     }
 

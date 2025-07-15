@@ -5,13 +5,13 @@ export class UserService{ // create a class of userservices
 
     Client = new Client(); // object created of client 
     databases; 
-    storage;
+    bucket;
 
     // create consrtuctor  
     constructor(){
         this.Client.setEndpoint(config.appwriteUrl).setProject(config.appwriteProjectId);
         this.databases = new Databases(this.Client);
-        this.storage = new Storage(this.Client);
+        this.bucket = new Storage(this.Client);
     }
     
     // we create a createPost method so that user can create a post and save the data in database and collection
@@ -70,15 +70,16 @@ export class UserService{ // create a class of userservices
         }
     }
 
-    async getPosts(){ //
+     async getPosts(queries = [Query.equal("status", "active")]){
         try {
-            await this.databases.listDocuments(config.appwriteDatabaseId,config.appwriteCollectionId , 
-                [
-                    Query.equal('status' , 'active') // We can give more than one Query 
-                ])
-            return true;
+            return await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                queries,
+
+            )
         } catch (error) {
-            console.log("appwrite service :: getPosts :: error",error)
+            console.log("Appwrite serive :: getPosts :: error", error);
             return false
         }
     }
@@ -86,7 +87,7 @@ export class UserService{ // create a class of userservices
     // create file so user can uploadfile
     async uploadFile(file){
         try {
-            const fileID = await this.storage.createFile(config.appwriteBucketId ,ID.unique() , file );
+            const fileID = await this.bucket.createFile(config.appwriteBucketId ,ID.unique() , file );
             return fileID;
         } catch (error) {
             console.log("Appwrite service :: uploFile :: error" , error)
@@ -96,7 +97,7 @@ export class UserService{ // create a class of userservices
     // delete file
     async deleteFile(fileID){
         try {
-           await this.storage.deleteFile(config.appwriteBucketId , fileID)
+           await this.bucket.deleteFile(config.appwriteBucketId , fileID)
            return true; 
         } catch (error) {
             console.log("Appwrite service :: deleteFile :: error" , error)
@@ -105,7 +106,7 @@ export class UserService{ // create a class of userservices
     }
 
     getFilePreview(fileID){
-        return this.storage.getFilePreview(config.appwriteBucketId,fileID)
+        return this.bucket.getFilePreview(config.appwriteBucketId,fileID)
     }
 }
 

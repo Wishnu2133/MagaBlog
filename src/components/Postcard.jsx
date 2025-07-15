@@ -2,7 +2,7 @@ import React from 'react';
 import userservice from '../appwrite/conf'
 import {Link} from 'react-router-dom'
 
-function PostCard({$id , title , contentImage}) {
+function Postcard({$id , title , contentImage}) {
     return(
         <Link to={`/post/${$id}`}>
               <div className='w-full bg-gray-700  rounded-xl'>
@@ -15,4 +15,4 @@ function PostCard({$id , title , contentImage}) {
     )
 }
 
-export default PostCard;
+export default Postcard;

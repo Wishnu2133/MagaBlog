@@ -15,17 +15,14 @@ export default function Signup() {
   const create = async (data) => {
     setError("");
     try {
-      const userData = await authservice.createAccount(data);
-
-      if (userData) {
-        await authservice.getCurrentUser(userData);
-
+      await authservice.createAccount(data);
+      const userData = await authservice.getCurrentUser();
         if (userData) {
           dispatch(login(userData));
           navigate("/");
         }
       }
-    } catch (error) {
+      catch (error) {
       setError(error.message);
     }
   };

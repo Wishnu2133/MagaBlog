@@ -1,10 +1,10 @@
-import {Signup as Signupcomponant} from '../components/Signup/Signup'
+import {Signup as Signupcomponant} from '../components/index'
 
 
-export default function Signup(){
+export default function signup(){
     return (
         <div className='py-8'>
-        <Signupcomponant/>
+            <Signupcomponant/>
         </div>
     )
 }

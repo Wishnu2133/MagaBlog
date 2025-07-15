@@ -11,6 +11,7 @@ import Postform from '../components/Post-Form/Postform.jsx'
 import Postcard from '../components/Postcard.jsx'
 import Protected from './Protected.jsx'
 import Login from './Login/Login.jsx'
+import Signup from './Signup/Signup.jsx'
 
 export {
     Header,
@@ -25,6 +26,6 @@ export {
     Postform,
     Postcard,
     Protected,
-    Login
-
+    Login,
+    Signup
 }
